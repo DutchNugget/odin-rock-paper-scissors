@@ -53,6 +53,7 @@ function getComputerChoice () {
 
 let humanScore = 0;
 let computerScore = 0;
+let round = 1;
 
 function playRound (humanChoice, computerChoice) {
     if (humanChoice === computerChoice) {
@@ -74,35 +75,21 @@ function playRound (humanChoice, computerChoice) {
 }
 
 
-let humanChoice1 = getHumanChoice();
-let computerChoice1 = getComputerChoice();
-console.log("round 1: " + playRound(humanChoice1, computerChoice1));
+while (humanScore < 5 && computerScore <5){
+    let humanChoice = getHumanChoice();
+    if (!humanChoice){
+        alert("You fucked up");
+        break;
+    } 
+    let computerChoice = getComputerChoice();
+    console.log(`round ${round}:`);
+    console.log(playRound(humanChoice, computerChoice))
+    console.log(`Player - ${humanScore} Computer - ${computerScore}` )
+    round++;
+}
 
-let humanChoice2 = getHumanChoice();
-let computerChoice2 = getComputerChoice();
-console.log("round 2: " + playRound(humanChoice2, computerChoice2));
-
-let humanChoice3 = getHumanChoice();
-let computerChoice3 = getComputerChoice();
-console.log("round 3: " + playRound(humanChoice3, computerChoice3));
-
-let humanChoice4 = getHumanChoice();
-let computerChoice4 = getComputerChoice();
-console.log("round 4: " + playRound(humanChoice4, computerChoice4));
-
-let humanChoice5 = getHumanChoice();
-let computerChoice5 = getComputerChoice();
-console.log("round 5: " + playRound(humanChoice5, computerChoice5));
-
-
-let humanChoice6 = getHumanChoice();
-let computerChoice6 = getComputerChoice();
-console.log("round 6: " + playRound(humanChoice5, computerChoice5));
-
-let humanChoice7 = getHumanChoice();
-let computerChoice7 = getComputerChoice();
-console.log("round 5: " + playRound(humanChoice5, computerChoice5));
-
-let humanChoice8 = getHumanChoice();
-let computerChoice8 = getComputerChoice();
-console.log("round 8: " + playRound(humanChoice5, computerChoice5));
+if (humanScore === 5) {
+    console.log(`You won! Finale score: Player - 5 Computer - ${computerScore}`)
+} else if  (computerScore === 5) {
+    console.log(`You lost madafakka. Final Score: Player - ${humanScore} Computer - 5`)
+}
