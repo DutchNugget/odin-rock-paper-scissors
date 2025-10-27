@@ -1,0 +1,36 @@
+.mainContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 24px;
+    
+}
+
+button {
+    background-color: #ced6e2;
+    border-radius: 5px;
+    padding: 5px 20px;
+    color: #030303;
+    font-weight: 700;
+    font-size: 16px;
+    margin: 15px;
+}
+
+#scoreDisplay {
+  font-family: 'Poppins', sans-serif;
+  font-size: 24px;
+  font-weight: 600;
+  color: #333;
+  background: #f2f2f2;
+  padding: 10px 20px;
+  border-radius: 10px;
+  display: inline-block;
+  word-spacing: 10px;
+}
+
+.resultMsg {
+    word-spacing: 2px;
+    font-size: 16px;
+}
+
