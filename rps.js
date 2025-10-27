@@ -4,6 +4,7 @@ let round = 1;
 
 const buttonContainer = document.getElementById("buttons");
 const scoreDisplay    = document.getElementById("scoreDisplay");
+const buttons         = document.querySelectorAll("#buttons button");
 
 buttonContainer.addEventListener("click", (event)=> {
     //targets all buttons inside the buttonContainer, instead of 1 listener per button
@@ -19,10 +20,13 @@ buttonContainer.addEventListener("click", (event)=> {
         //victory condition check below, and calls restartbutton function to create element
         if (humanScore === 5) {
             scoreDisplay.append(`You won! Final score: Player - 5 | Computer - ${computerScore}`);
+            buttons.forEach(button => button.disabled = true);
             showRestartButton()
+
             return;
         } else if (computerScore === 5) {
             scoreDisplay.append(`You lost! Final score: Player - ${humanScore} | Computer - 5`)
+            buttons.forEach(button => button.disabled = true);
             showRestartButton();
         }
     } 
@@ -48,6 +52,7 @@ function restartGame () {
     const restartBtn = document.getElementById("restartBtn");
     if (restartBtn) restartBtn.remove();
     updateScore();
+    buttons.forEach(button => button.disabled = false)
 }
 
 //gets current round and score from playround function and updates display
